@@ -1,0 +1,37 @@
+# This is a GitHub Actions workflow file that defines a simple workflow to run on pushes to the main branch. It includes steps to check out the repository, run some scripts, and print environment details.
+name: First workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run a one-line script
+        run: echo "Hello, World!"
+
+      - name: Run a multi-line script
+        run: |
+          echo "This is a multi-line script."
+          echo "You can run multiple commands here."
+
+      - name: Print environment variables
+        run: env
+
+      - name: Print environment details
+        run: |
+          echo "Environment details:"
+          echo "OS: ${{ runner.os }}"
+          echo "Runner name: ${{ runner.name }}"
+          echo "Runner version: ${{ runner.version }}"
+          pwd
+          ls -la
+          whoami
+          uname -a
