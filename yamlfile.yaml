@@ -1,2 +1,91 @@
 # This is a YAML file for Learning purposes.
 name: Mohammed
+
+s_message: 'Hello\n World!' # Hello\n World!
+s_path: 'C:\Users\Mohammed\Documents' # C:\Users\Mohammed\Documents
+s_quote: "It's YAML!" # It's YAML!
+s_multiline: |
+  This is a multi-line string.
+  It can span multiple lines without needing special characters.
+  Indentation is preserved.
+
+s_folded: >
+  This is a folded string.
+  It will be folded into a single line, with newlines replaced by spaces.
+
+  Indentation is preserved, but newlines are not.
+
+s_list:
+  - Item 1
+  - Item 2
+  - Item 3
+
+s_dict:
+  key1: value1
+  key2: value2
+  key3: value3
+
+s_nested:
+  list:
+    - name: Item 1
+      value: 10
+    - name: Item 2
+      value: 20
+  dict:
+    key1: value1
+    key2: value2
+
+s_bool: true
+s_null: null
+s_number: 42
+s_float: 3.14
+
+servers:
+  production:
+    - host: prod1.example.com
+      ip: 192.168.1.10
+    - host: prod2.example.com
+      ip: 192.168.1.11
+  staging:
+    - host: staging1.example.com
+      ip: 192.168.2.21
+    - host: staging2.example.com
+      ip: 192.168.2.22
+  development:
+    - host: dev1.example.com
+      ip: 192.168.3.30
+
+# Webhooks based triggered by GitHub Actions
+webhooks:
+  - name: webhook1
+    url: https://example.com/webhook1
+    events:
+      - push
+      - pull_request
+  - name: webhook2
+    url: https://example.com/webhook2
+    events:
+      - issues
+      - issue_comment
+
+# Webhooks scheduled to run at specific times
+scheduled_webhooks:
+  - name: daily_webhook
+    url: https://example.com/daily_webhook
+    schedule: "0 0 * * *" # Every day at midnight
+  - name: weekly_webhook
+    url: https://example.com/weekly_webhook
+    schedule: "0 0 * * 0" # Every Sunday at midnight
+
+# Webhooks triggered by external events (e.g., from a monitoring system)
+external_webhooks:
+  - name: monitoring_webhook
+    url: https://example.com/monitoring_webhook
+    events:
+      - alert_triggered
+      - alert_resolved
+  - name: deployment_webhook
+    url: https://example.com/deployment_webhook
+    events:
+      - deployment_started
+      - deployment_finished
