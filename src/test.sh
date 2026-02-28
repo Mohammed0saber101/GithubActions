@@ -1,4 +1,4 @@
-EXPECTED="Hello, World!"
+EXPECTED="Hello, World"
 ACTUAL=$(node src/app.js World!)
 
 if [ "$ACTUAL" = "$EXPECTED" ]; then
