@@ -1,0 +1,32 @@
+on:
+  schedule:
+    # "* * * * *" # Run every minute
+    # "0 * * * *" # Run every hour
+    # "0 0 * * *" # Run every day at midnight 12:00 AM UTC
+    # "0 0 * * 0" # Run every Sunday at midnight 12:00 AM UTC
+    # "0 0 * * 0-4" # Run every Monday to Friday at midnight 12:00 AM UTC
+    # "0 0 * * 0-4 9-17" # Run every Monday to Friday at 9 AM to 5 PM UTC
+    # - cron: "0 0 * * *" # Run every day at midnight 12:00 AM UTC
+    - cron: "*/5 * * * *" # Run every 5 minutes
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.2
+
+      - name: Run tests
+        run: npm test
+
+  artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create artifact
+        run: echo "Hello, World!" > artifact.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v7.0.0
+        with:
+          name: artifact
+          path: artifact.txt
