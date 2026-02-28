@@ -1,5 +1,5 @@
 EXPECTED="Hello, World!"
-ACTUAL=$(node src/app.js World)
+ACTUAL=$(node src/app.js World!)
 
 if [ "$ACTUAL" = "$EXPECTED" ]; then
   echo "✅ Test passed"
