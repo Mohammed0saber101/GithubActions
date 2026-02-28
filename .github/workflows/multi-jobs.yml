@@ -1,0 +1,49 @@
+name: Multi Jobs
+
+on:
+  push:
+    branches:
+      - main
+  #     - test
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - test
+  workflow_dispatch:
+    inputs:
+      DB:
+        description: "Choose database"
+        required: true
+        default: "mysql"
+        type: choice
+        options:
+          - mysql
+          - postgresql
+          - oracle
+
+      Framework:
+        description: "Choose framework"
+        required: true
+        default: "react"
+        type: choice
+        options:
+          - react
+          - angular
+          - vue
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.2
+      - name: Deploy application
+        run: echo "Deploying the application! to ${{inputs.DB}}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.2
+      - name: Deploy application
+        run: echo "Deploying the application! to ${{inputs.Framework}}"
