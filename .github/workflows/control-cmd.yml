@@ -1,0 +1,19 @@
+# This workflow is triggered on workflow_dispatch
+# This workflow for control any command in the workflow using shell
+# shell: bash # pwsh, cmd, powershell, python
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          npm install
+          npm run build
+        working-directory: ./app
+        shell: bash # pwsh, cmd, powershell, python
+
+      - run: print %ENV
+        shell: perl {0}
