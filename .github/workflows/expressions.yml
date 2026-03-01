@@ -15,3 +15,20 @@ jobs:
         run: echo "The job is running"
         if: ${{!contains(github.event.head_commit.message, 'skip ci')}}
         # if: ${{github.event_name == 'push' && !contains(github.event.head_commit.message, 'skip ci')}}
+        # if: failure() -> This will run if any previous step has failed
+        # if: success() -> This will run if all previous steps have succeeded
+        # if: always() -> This will run regardless of the outcome of previous steps
+        # if: cancelled() -> This will run if the workflow run was cancelled
+        # if: github.event_name == 'pull_request' -> This will run only for pull request events
+        # if: github.ref == 'refs/heads/main' -> This will run only for
+        # if: github.actor == 'dependabot' -> This will run only if the actor is dependabot
+        # if: github.repository == 'owner/repo' -> This will run only for a specific repository
+        # if: github.event.head_commit.message == 'fix bug' -> This will run only if the commit message is 'fix bug'
+        # if: github.event.head_commit.message != 'fix bug' -> This will run only if the commit message is not 'fix bug'
+        # if: github.event.head_commit.message contains 'fix' -> This will run only if the commit message contains 'fix'
+        # if: github.event.head_commit.message startsWith 'fix' -> This will run only if the commit message starts with 'fix'
+        # if: github.event.head_commit.message endsWith 'bug' -> This will run only if the commit message ends with 'bug'
+        # if: github.event.head_commit.message matches 'fix.*bug' -> This will run only if the commit message matches the regex 'fix.*bug'
+        # if: github.event.head_commit.message in ['fix bug', 'add feature'] -> This will run only if the commit message is either 'fix bug' or 'add feature'
+        # if: github.event.head_commit.message not in ['fix bug', 'add feature'] -> This will run only if the commit message is neither 'fix bug' nor 'add feature'
+        # if: github.event.head_commit.message == 'fix bug' && github.actor == 'dependabot' -> This will run only if the commit message is 'fix bug' and the actor is dependabot

@@ -1,0 +1,15 @@
+name: Workflow commands
+
+on:
+  workflow_dispatch:
+
+jobs:
+  commands_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a command with warning
+        run: |
+          deprecated=true
+          if [[deprecated]]; then
+            echo "::warning::Deprecated command used"
+          fi
