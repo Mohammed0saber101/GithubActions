@@ -14,4 +14,8 @@ jobs:
         uses: docker://alpine:latest
         with:
           entrypoint: /bin/sh
-          args: echo "Running in Alpine container"
+          args: |
+            -c "echo 'Running in Alpine container'"
+
+      - name: Run another command in Ubuntu VM
+        run: echo "Back to ubuntu VM"
