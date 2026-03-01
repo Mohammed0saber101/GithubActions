@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.2
+
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        uses: .github/actions/Greeting@v1
+        with:
+          name: Ahmed

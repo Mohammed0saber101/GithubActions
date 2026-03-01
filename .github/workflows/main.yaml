@@ -30,7 +30,7 @@ jobs:
           echo "Environment details:"
           echo "OS: ${{ runner.os }}"
           echo "Runner name: ${{ runner.name }}"
-          echo "Runner version: ${{ runner.version }}"
+          echo "Runner version: $RUNNER_VERSION"
           pwd
           ls -la
           whoami
