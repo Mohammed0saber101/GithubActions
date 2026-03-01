@@ -10,6 +10,17 @@ jobs:
       - name: Run a command with warning
         run: |
           deprecated=true
-          if [[deprecated]]; then
+          if [ "$deprecated" = true ]; then
             echo "::warning::Deprecated command used"
+          fi
+
+      - name: Check if file exists
+        run: |
+          if [ -f "config.yml" ]; then
+            echo "File exists"
+            echo "::notice::config.yml file is present"
+          else
+            echo "::error::config.yml file is missing"
+            echo "::notice::config.yml file is present"
+            echo "::warning::Please add config.yml to the repository"
           fi
