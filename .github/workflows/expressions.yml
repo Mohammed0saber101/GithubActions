@@ -1,0 +1,15 @@
+name: Expressions
+
+on:
+  push:
+    branches:
+      - main
+      - test
+
+jobs:
+  expressions_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a command with an expression
+        run: echo "The job is running"
+        if: ${{github.event_name == 'push' && !contains(github.event.head_commit.message, 'skip ci')}}
