@@ -1,0 +1,14 @@
+name: Variables Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  variables_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set variable
+        run: echo "MY_VARIABLE=Hello World" >> $GITHUB_ENV
+
+      - name: Use variable
+        run: echo "The value of MY_VARIABLE is $MY_VARIABLE"
